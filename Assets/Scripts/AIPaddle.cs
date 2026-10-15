@@ -9,6 +9,8 @@ public class AIPaddle : MonoBehaviour
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball").transform;
+
+        speed = GameSettings.aiSpeed;
     }
 
     // Update is called once per frame

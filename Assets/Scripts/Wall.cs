@@ -1,9 +1,16 @@
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
     public GameManager gameManager;
+
+    void Start()
+    {
+        if (gameManager == null)
+        {
+            gameManager = Object.FindAnyObjectByType<GameManager>();
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {

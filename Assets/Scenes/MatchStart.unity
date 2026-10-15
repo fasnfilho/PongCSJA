@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1226758633}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: restartGame
         m_Mode: 1
@@ -1941,9 +1941,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1226758633}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: restartGame
+        m_MethodName: voltarAoMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2367,6 +2367,9 @@ MonoBehaviour:
   RightPlayerWin: {fileID: 630475865}
   audioSource: {fileID: 1226758635}
   scoreSFX: {fileID: 8300000, guid: 54a7282af9bc8f1438cabcb7c321442a, type: 3}
+  maxScoreToWin: 2
+  PaddleAIObj: {fileID: 1062463263}
+  PaddlePlayer2Obj: {fileID: 1485100618}
 --- !u!4 &1226758634
 Transform:
   m_ObjectHideFlags: 0

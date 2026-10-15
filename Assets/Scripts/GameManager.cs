@@ -20,11 +20,29 @@ public class GameManager : MonoBehaviour
 
     private bool isGameOver = false;
 
+    [Header("Configurações da Partida")]
+    public int maxScoreToWin = 2;
+
+    [Header("Configurações de Raquetes")]
+    public GameObject PaddleAIObj;
+    public GameObject PaddlePlayer2Obj;
+
     void Start()
     {
         Time.timeScale = 1f;
 
         gameOverPanel.gameObject.SetActive(false);
+
+        if (GameSettings.isAgainstAI)
+        {
+            if (PaddleAIObj != null) PaddleAIObj.SetActive(true);
+            if (PaddlePlayer2Obj != null) PaddlePlayer2Obj.SetActive(false);
+        }
+        else
+        {
+            if (PaddleAIObj != null) PaddleAIObj.SetActive(false);
+            if (PaddlePlayer2Obj != null) PaddlePlayer2Obj.SetActive(true);
+        }
     }
 
     void Update()
@@ -61,19 +79,42 @@ public class GameManager : MonoBehaviour
 
     void gameOver()
     {
-        if (playerScore == 2 && Time.timeScale > 0)
+        if (playerScore == maxScoreToWin && Time.timeScale > 0)
         {
             isGameOver = true;
 
             pausarEMostrarGameOver();
+
+            if (GameSettings.isAgainstAI)
+            {
+                if (LeftPlayerWin != null) LeftPlayerWin.text = "Você Venceu!";
+                if (RightPlayerWin != null) RightPlayerWin.text = "Você Perdeu!";
+            }
+            else
+            {
+                if (LeftPlayerWin != null) LeftPlayerWin.text = "Player 1 Venceu!";
+                if (RightPlayerWin != null) RightPlayerWin.text = "Player 2 Venceu!";
+            }
+
             LeftPlayerWin.gameObject.SetActive(true);
             RightPlayerWin.gameObject.SetActive(false);
 
 
         }
-        else if (AIScore == 2 && Time.timeScale > 0)
+        else if (AIScore == maxScoreToWin && Time.timeScale > 0)
         {
             isGameOver = true;
+
+            if (GameSettings.isAgainstAI)
+            {
+                if (LeftPlayerWin != null) LeftPlayerWin.text = "Você Venceu!";
+                if (RightPlayerWin != null) RightPlayerWin.text = "Você Perdeu!";
+            }
+            else
+            {
+                if (LeftPlayerWin != null) LeftPlayerWin.text = "Player 1 Venceu!";
+                if (RightPlayerWin != null) RightPlayerWin.text = "Player 2 Venceu!";
+            }
 
             pausarEMostrarGameOver();
             LeftPlayerWin.gameObject.SetActive(false);
@@ -90,7 +131,17 @@ public class GameManager : MonoBehaviour
 
     public void restartGame()
     {
+        DOTween.KillAll();
+
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void voltarAoMenu()
+    {
+        DOTween.KillAll();
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }
