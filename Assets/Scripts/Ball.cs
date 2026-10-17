@@ -105,9 +105,9 @@ public class Ball : MonoBehaviour
 
         Camera.main.transform.DOKill();
         Camera.main.transform.DOShakePosition(
-            0.1f, //duração
-            0.2f, //força do shake
-            10, //vibrações
+            0.12f, //duração
+            0.25f, //força do shake
+            15, //vibrações
             90f, //aleatoriedade
             false, //mudar o eixo z
             true //fade out
