@@ -32,4 +32,13 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void sairDoJogo()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
+
 }
