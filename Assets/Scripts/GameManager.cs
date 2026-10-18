@@ -85,6 +85,12 @@ public class GameManager : MonoBehaviour
 
             pausarEMostrarGameOver();
 
+            CursorController cursor = Object.FindAnyObjectByType<CursorController>();
+            if (cursor != null)
+            {
+                cursor.ExibirCursor();
+            }
+
             if (GameSettings.isAgainstAI)
             {
                 if (LeftPlayerWin != null) LeftPlayerWin.text = "Você Venceu!";
@@ -105,6 +111,14 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
 
+            pausarEMostrarGameOver();
+
+            CursorController cursor = Object.FindAnyObjectByType<CursorController>();
+            if (cursor != null)
+            {
+                cursor.ExibirCursor();
+            }
+
             if (GameSettings.isAgainstAI)
             {
                 if (LeftPlayerWin != null) LeftPlayerWin.text = "Você Venceu!";
@@ -116,7 +130,6 @@ public class GameManager : MonoBehaviour
                 if (RightPlayerWin != null) RightPlayerWin.text = "Player 2 Venceu!";
             }
 
-            pausarEMostrarGameOver();
             LeftPlayerWin.gameObject.SetActive(false);
             RightPlayerWin.gameObject.SetActive(true);
         }
