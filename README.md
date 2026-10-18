@@ -67,3 +67,6 @@ Este projeto foi construído para demonstrar conceitos sólidos de desenvolvimen
 3. Abra a cena do Menu Principal localizada em Assets/Scenes/Scene_MainMenu.unity.
 
 4. Pressione o botão Play no editor!
+
+
+Desenvolvido com ❤️ por Fábio Agostinho
