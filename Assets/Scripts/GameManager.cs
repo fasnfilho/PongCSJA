@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;
 
     [Header("Configurações da Partida")]
-    public int maxScoreToWin = 2;
+    public int maxScoreToWin = 10;
 
     [Header("Configurações de Raquetes")]
     public GameObject PaddleAIObj;
